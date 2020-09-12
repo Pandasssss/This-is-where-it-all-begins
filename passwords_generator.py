@@ -3,11 +3,11 @@ import random
 def main():
     digits = '0123456789'
     lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
-    uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' 
     punctuation = '!#$%&*+-=?@^_'
     try:
-        cntPw = int(input('Укажите количество паролей для генерации: '))
-        lenPw = int(input('Укажите длину одного пароля: '))
+        cnt_pw = int(input('Укажите количество паролей для генерации: '))
+        len_pw = int(input('Укажите длину одного пароля: '))
     except:
         print('Вводи числа, муд@к')
         main()
@@ -20,7 +20,8 @@ def main():
     if chars == None:
         main()
         return
-    print(chars)
+    for _ in range(cnt_pw):
+        print(*generate_password(chars, len_pw), sep='')
     
 def generate_chars(tpl):
     chars = ''
@@ -32,11 +33,11 @@ def generate_chars(tpl):
             return
     exc_on = input('Исключать ли неоднозначные символы il1Lo0O? (y/n or any symbol)')
     if exc_on == 'y':
-        chars_list = list(chars)
         for charm in 'il1Lo0O':
-            if charm in chars_list:
-                chars_list.remove(charm)
-        chars = str(chars_list)
+            chars = chars.replace(charm, '')
     return chars
+
+def generate_password(chars, length):
+    return random.sample(chars, length)
     
 main()
