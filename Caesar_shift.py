@@ -1,10 +1,7 @@
 eng_alphabet = {'lower' : 'abcdefghijklmnopqrstuvwxyz', 'upper' : 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'}
 rus_alphabet = {'lower' : "абвгдежзийклмнопрстуфхцчшщъыьэюя", 'upper' : "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"}
 text = input("Введите текст для шифрования/дешифрования: ")
-shift = input('Введите величину сдвига: ')
-while not shift.isdigit():
-    shift = input('Введи число, сука! ')
-shift = int(shift)
+shift = int(input('Введите величину сдвига: '))
 
 def main():
     print(code(shift))
